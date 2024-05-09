@@ -3,6 +3,7 @@ import HomePage from "../../pages/HomePage/HomePage";
 import Header from "../Header/Header";
 import "./App.css";
 import { Suspense } from "react";
+import LoginUserPage from "../../pages/LoginUserPage/LoginUserPage";
 
 function App() {
   return (
@@ -15,6 +16,14 @@ function App() {
             element={
               <Suspense>
                 <HomePage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path={"/login"}
+            element={
+              <Suspense>
+                <LoginUserPage />
               </Suspense>
             }
           ></Route>

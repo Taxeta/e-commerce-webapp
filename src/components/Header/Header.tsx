@@ -3,6 +3,7 @@ import logo from "../../assets/ecommercelogo.jpg";
 import loginUser from "../../assets/login.png";
 import menu from "../../assets/menu.png";
 import "./header.css";
+import { NavLink } from "react-router-dom";
 
 const Header = (): React.ReactElement => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 560);
@@ -30,7 +31,7 @@ const Header = (): React.ReactElement => {
                 <button>
                   <img src={menu} alt="login-icon" width={38} height={38} />
                 </button>
-                <button>
+                <NavLink to="/login">
                   <img
                     className="login-position"
                     src={loginUser}
@@ -38,7 +39,7 @@ const Header = (): React.ReactElement => {
                     width={48}
                     height={48}
                   />
-                </button>
+                </NavLink>
               </div>
               <img
                 className="logo-align-mobile"
@@ -60,9 +61,9 @@ const Header = (): React.ReactElement => {
                 width={320}
                 height={100}
               />
-              <button className="login-position-web">
+              <NavLink to="/login" className="login-position-web">
                 <img src={loginUser} alt="login-icon" width={48} height={48} />
-              </button>
+              </NavLink>
             </div>
           )}
         </div>
