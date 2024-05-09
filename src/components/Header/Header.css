@@ -1,0 +1,41 @@
+.top-header {
+  display: flex;
+  background-color: var(--secondary-color);
+  font-size: 12px;
+  justify-content: center;
+}
+
+.header-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.buttons-position-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo-align-mobile {
+  align-self: center;
+}
+
+.header-web {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  padding: 0 25px 25px 25px;
+}
+
+.nav-bar-web {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.login-position-web {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

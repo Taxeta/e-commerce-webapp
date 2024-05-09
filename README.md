@@ -1,6 +1,8 @@
-# Boilerplate for React apps
+# Esto es un proyecto e-commerce elaborado por Jose Manuel Vera
 
-With Vite + TypeScript
+React > Typescript + Vite
+
+Proyecto e-commerce para negocios.
 
 ## Scripts
 
