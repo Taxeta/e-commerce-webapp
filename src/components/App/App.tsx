@@ -5,8 +5,10 @@ function App() {
   return (
     <div>
       <Header />
-      <h1>Esto va a ser el inicio de la App</h1>
-      <h2>renderizaremos una página inicial de muestra</h2>
+      <h1 className="introduction-title">Esto va a ser el inicio de la App</h1>
+      <h2 className="introduction-subtitle">
+        renderizaremos una página inicial de muestra
+      </h2>
     </div>
   );
 }

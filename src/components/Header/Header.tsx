@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/ecommercelogo.jpg";
 import loginUser from "../../assets/login.png";
+import menu from "../../assets/menu.png";
 import "./header.css";
 
 const Header = (): React.ReactElement => {
@@ -27,7 +28,7 @@ const Header = (): React.ReactElement => {
             <div className="header-mobile">
               <div className="buttons-position-mobile">
                 <button>
-                  <div>barra de navegación mobile</div>
+                  <img src={menu} alt="login-icon" width={38} height={38} />
                 </button>
                 <button>
                   <img
@@ -50,7 +51,7 @@ const Header = (): React.ReactElement => {
           ) : (
             <div className="header-web">
               <button className="nav-bar-web">
-                <div>barra de navegación web</div>
+                <img src={menu} alt="login-icon" width={38} height={38} />
               </button>
               <img src={logo} alt="ecommerce-logo" width={320} height={200} />
               <button className="login-position-web">
