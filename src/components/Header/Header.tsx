@@ -45,7 +45,7 @@ const Header = (): React.ReactElement => {
                 src={logo}
                 alt="ecommerce-logo"
                 width={320}
-                height={200}
+                height={100}
               />
             </div>
           ) : (
@@ -53,7 +53,13 @@ const Header = (): React.ReactElement => {
               <button className="nav-bar-web">
                 <img src={menu} alt="login-icon" width={38} height={38} />
               </button>
-              <img src={logo} alt="ecommerce-logo" width={320} height={200} />
+              <img
+                className="logo-align-web"
+                src={logo}
+                alt="ecommerce-logo"
+                width={320}
+                height={100}
+              />
               <button className="login-position-web">
                 <img src={loginUser} alt="login-icon" width={48} height={48} />
               </button>
