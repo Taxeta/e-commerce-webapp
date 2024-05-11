@@ -8,6 +8,9 @@
 .header-mobile {
   display: flex;
   flex-direction: column;
+}
+
+.nav-bar-mobile {
   padding: 5px;
 }
 
@@ -34,6 +37,7 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  padding: 5px;
 }
 
 .logo-align-web {

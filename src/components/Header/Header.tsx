@@ -28,9 +28,18 @@ const Header = (): React.ReactElement => {
           {isMobile ? (
             <div className="header-mobile">
               <div className="buttons-position-mobile">
-                <button>
+                <button className="nav-bar-mobile">
                   <img src={menu} alt="login-icon" width={38} height={38} />
                 </button>
+                <NavLink to="/">
+                  <img
+                    className="logo-align-mobile"
+                    src={logo}
+                    alt="ecommerce-logo"
+                    width={155}
+                    height={50}
+                  />
+                </NavLink>
                 <NavLink to="/login">
                   <img
                     className="login-position"
@@ -41,26 +50,21 @@ const Header = (): React.ReactElement => {
                   />
                 </NavLink>
               </div>
-              <img
-                className="logo-align-mobile"
-                src={logo}
-                alt="ecommerce-logo"
-                width={320}
-                height={100}
-              />
             </div>
           ) : (
             <div className="header-web">
               <button className="nav-bar-web">
                 <img src={menu} alt="login-icon" width={38} height={38} />
               </button>
-              <img
-                className="logo-align-web"
-                src={logo}
-                alt="ecommerce-logo"
-                width={320}
-                height={100}
-              />
+              <NavLink to="/">
+                <img
+                  className="logo-align-web"
+                  src={logo}
+                  alt="ecommerce-logo"
+                  width={240}
+                  height={80}
+                />
+              </NavLink>
               <NavLink to="/login" className="login-position-web">
                 <img src={loginUser} alt="login-icon" width={48} height={48} />
               </NavLink>
