@@ -5,6 +5,11 @@
   gap: 15px;
   padding: 15px 5px;
 }
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 .login-page a {
   color: var(--primary-color);
@@ -38,9 +43,16 @@
   width: 66px;
 }
 
-.newuser-button {
+.user-btn {
   color: var(--black);
   padding: 15px 40px;
   border: 1px solid var(--primary-color);
   background-color: var(--primary-color);
+  width: 75%;
+  align-self: center;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
 }

@@ -3,7 +3,8 @@ import HomePage from "../../pages/HomePage/HomePage";
 import Header from "../Header/Header";
 import "./App.css";
 import { Suspense } from "react";
-import LoginUserPage from "../../pages/LoginUserPage/LoginUserPage";
+import LoginUserPage from "../../pages/Login/LoginUserPage/LoginUserPage";
+import SignUpPage from "../../pages/Login/RegisterPage/RegisterPage";
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
             element={
               <Suspense>
                 <LoginUserPage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path={"/registro"}
+            element={
+              <Suspense>
+                <SignUpPage />
               </Suspense>
             }
           ></Route>
