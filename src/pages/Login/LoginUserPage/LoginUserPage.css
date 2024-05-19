@@ -1,0 +1,95 @@
+.login-page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 5px;
+}
+
+.login-subtitle {
+  text-align: center;
+}
+
+.login-title {
+  padding: 20px;
+  text-align: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.login-page a {
+  color: var(--primary-color);
+}
+
+.input-login {
+  width: 240px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 5px;
+  border: none;
+}
+
+.login-email {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login-password {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.showpass-button {
+  color: var(--black);
+  padding: 5px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  width: 66px;
+}
+
+.user-btn {
+  color: var(--black);
+  padding: 15px 40px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  align-self: center;
+  text-transform: uppercase;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+@media (min-width: 380px) {
+  .login-container,
+  .signin-container {
+    padding: 0 30px;
+  }
+}
+
+@media (min-width: 420px) {
+  .login-container,
+  .signin-container {
+    padding: 0 50px;
+  }
+}
+
+@media (min-width: 620px) {
+  .login-container,
+  .signin-container {
+    padding: 0 20px;
+  }
+  .login-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

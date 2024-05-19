@@ -3,6 +3,7 @@ import logo from "../../assets/ecommercelogo.jpg";
 import loginUser from "../../assets/login.png";
 import menu from "../../assets/menu.png";
 import "./header.css";
+import { NavLink } from "react-router-dom";
 
 const Header = (): React.ReactElement => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 560);
@@ -27,10 +28,19 @@ const Header = (): React.ReactElement => {
           {isMobile ? (
             <div className="header-mobile">
               <div className="buttons-position-mobile">
-                <button>
+                <button className="nav-bar-mobile">
                   <img src={menu} alt="login-icon" width={38} height={38} />
                 </button>
-                <button>
+                <NavLink to="/">
+                  <img
+                    className="logo-align-mobile"
+                    src={logo}
+                    alt="ecommerce-logo"
+                    width={155}
+                    height={50}
+                  />
+                </NavLink>
+                <NavLink to="/login">
                   <img
                     className="login-position"
                     src={loginUser}
@@ -38,25 +48,26 @@ const Header = (): React.ReactElement => {
                     width={48}
                     height={48}
                   />
-                </button>
+                </NavLink>
               </div>
-              <img
-                className="logo-align-mobile"
-                src={logo}
-                alt="ecommerce-logo"
-                width={320}
-                height={200}
-              />
             </div>
           ) : (
             <div className="header-web">
               <button className="nav-bar-web">
                 <img src={menu} alt="login-icon" width={38} height={38} />
               </button>
-              <img src={logo} alt="ecommerce-logo" width={320} height={200} />
-              <button className="login-position-web">
+              <NavLink to="/">
+                <img
+                  className="logo-align-web"
+                  src={logo}
+                  alt="ecommerce-logo"
+                  width={240}
+                  height={80}
+                />
+              </NavLink>
+              <NavLink to="/login" className="login-position-web">
                 <img src={loginUser} alt="login-icon" width={48} height={48} />
-              </button>
+              </NavLink>
             </div>
           )}
         </div>
