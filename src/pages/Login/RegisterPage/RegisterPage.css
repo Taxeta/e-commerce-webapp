@@ -1,0 +1,28 @@
+.register_page {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.register-title {
+  text-align: center;
+}
+
+.input-register {
+  width: 240px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 5px;
+  border: none;
+}
+
+.register_button {
+  color: var(--black);
+  padding: 15px 40px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  align-self: center;
+  text-transform: uppercase;
+}

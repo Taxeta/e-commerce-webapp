@@ -1,13 +1,15 @@
 /* eslint-disable no-console */
 import { useState } from "react";
-import supabase from "../../../../supabase.js"; // Asegúrate de importar correctamente
+import supabase from "../../../../supabase.js";
 import { AuthResponseStructure, UserStructure } from "../../../types.js";
 import { useNavigate } from "react-router-dom";
+import "./RegisterPage.css";
 
 function SignUpPage() {
   const [user, setUser] = useState<UserStructure>({
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -22,15 +24,20 @@ function SignUpPage() {
       return false;
     }
 
-    return data.length > 0; // Si data.length > 0, el correo electrónico existe
+    return data.length > 0;
   }
 
   const handleSignUp = async () => {
     try {
-      const { email, password } = user;
-      if (!(await validarEmail(email))) {
-        setErrorMessage(
-          "Correo electrónico inválido. Porfavor ingresa una corre electrónico válido",
+      const { email, password, confirmPassword } = user;
+      if (password !== confirmPassword) {
+        return setErrorMessage(
+          "Las contraseñas no coinciden. Por favor, asegúrate de que las contraseñas sean iguales",
+        );
+      }
+      if (await validarEmail(email)) {
+        return setErrorMessage(
+          "Este correo electrónico ya está en uso. Por favor, ingresa un correo electrónico diferente",
         );
       }
       const { data, error }: AuthResponseStructure = await supabase.auth.signUp(
@@ -40,7 +47,7 @@ function SignUpPage() {
         },
       );
 
-      if (data) {
+      if (data && data.user) {
         navigate("/");
         console.log("Usuario correctamente registrado", data);
       } else {
@@ -52,19 +59,33 @@ function SignUpPage() {
   };
 
   return (
-    <div>
+    <div className="register_page">
+      <h2 className="register-title">Introduzca sus datos de registro</h2>
       <input
+        className="input-register"
         type="email"
         placeholder="Correo electrónico"
+        required
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <input
+        className="input-register"
         type="password"
         placeholder="Contraseña"
+        required
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
+      <input
+        className="input-register"
+        type="password"
+        placeholder="Confirmar contraseña"
+        required
+        onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
+      />
       {errorMessage && <span className="error-message">{errorMessage}</span>}
-      <button onClick={handleSignUp}>Registrarse</button>
+      <button className="register_button" onClick={handleSignUp}>
+        Registrarse
+      </button>
     </div>
   );
 }

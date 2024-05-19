@@ -3,6 +3,7 @@ import { AuthError, Session, User } from "@supabase/supabase-js";
 export interface UserStructure {
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 export interface AuthResponseStructure {
