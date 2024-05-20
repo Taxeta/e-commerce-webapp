@@ -5,6 +5,8 @@ import "./App.css";
 import { Suspense } from "react";
 import LoginUserPage from "../../pages/Login/LoginUserPage/LoginUserPage";
 import SignUpPage from "../../pages/Login/RegisterPage/RegisterPage";
+import ProfilePage from "../../pages/ProfilePage/ProfilePage";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -34,6 +36,16 @@ function App() {
               <Suspense>
                 <SignUpPage />
               </Suspense>
+            }
+          ></Route>
+          <Route
+            path={"/perfil-de-usuario"}
+            element={
+              <ProtectedRoute>
+                <Suspense>
+                  <ProfilePage />
+                </Suspense>
+              </ProtectedRoute>
             }
           ></Route>
         </Routes>

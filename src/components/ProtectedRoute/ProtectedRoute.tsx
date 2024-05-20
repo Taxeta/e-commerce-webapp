@@ -9,6 +9,7 @@ const ProtectedRoute = ({
   const isLoading = !user;
 
   if (!user && !isLoading) {
+    supabase.auth.signOut();
     return <Navigate to={"/"} />;
   }
 
