@@ -4,13 +4,14 @@ import logo from "../../assets/ecommercelogo.jpg";
 import loginUser from "../../assets/login.png";
 import menu from "../../assets/menu.png";
 import "./header.css";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import supabase from "../../../supabase.js";
 import { AuthChangeEvent, Session, User } from "@supabase/supabase-js";
 
 const Header = (): React.ReactElement => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 560);
   const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleAuthChange = (
@@ -25,17 +26,24 @@ const Header = (): React.ReactElement => {
         }
       });
     };
-    supabase.auth.onAuthStateChange(handleAuthChange);
+    const { data: authListener } =
+      supabase.auth.onAuthStateChange(handleAuthChange);
 
     const currentSession = async () => {
-      const session = await supabase.auth.getUser();
-      if (session) {
-        setUser(session.data.user); // Update user state with user object if logged in
-        console.log(session.data.user);
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user); // Update user state with user object if logged in
+        console.log(user);
       }
     };
 
     currentSession();
+
+    return () => {
+      authListener.subscription?.unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
@@ -52,8 +60,14 @@ const Header = (): React.ReactElement => {
 
   const userLogOut = async () => {
     await supabase.auth.signOut();
-    <Navigate to={"/login"} replace={true} />;
+    setUser(null);
   };
+
+  useEffect(() => {
+    if (user === null) {
+      navigate("/login", { replace: true });
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -140,15 +154,6 @@ const Header = (): React.ReactElement => {
                       height={48}
                     />
                   </button>
-                  <NavLink to="/login">
-                    <img
-                      className="login-position"
-                      src={loginUser}
-                      alt="login-icon"
-                      width={48}
-                      height={48}
-                    />
-                  </NavLink>
                 </div>
               </div>
             ) : (
@@ -173,14 +178,6 @@ const Header = (): React.ReactElement => {
                     height={48}
                   />
                 </button>
-                <NavLink to="/login" className="login-position-web">
-                  <img
-                    src={loginUser}
-                    alt="login-icon"
-                    width={48}
-                    height={48}
-                  />
-                </NavLink>
               </div>
             )}
           </div>

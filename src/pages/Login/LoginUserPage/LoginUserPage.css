@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 15px;
   padding: 15px 5px;
+  justify-items: center;
 }
 
 .login-subtitle {
