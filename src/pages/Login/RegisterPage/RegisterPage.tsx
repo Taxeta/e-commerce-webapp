@@ -60,7 +60,7 @@ function SignUpPage() {
 
   return (
     <div className="register_page">
-      <h2 className="register-title">Introduzca sus datos de registro</h2>
+      <h2 className="register-title">Introduzca sus datos para registrarse</h2>
       <input
         className="input-register"
         type="email"

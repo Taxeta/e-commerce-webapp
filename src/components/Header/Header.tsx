@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/ecommercelogo.jpg";
 import loginUser from "../../assets/login.png";
+import logout from "../../assets/logout.png";
 import menu from "../../assets/menu.png";
 import "./header.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -61,19 +62,23 @@ const Header = (): React.ReactElement => {
   const userLogOut = async () => {
     await supabase.auth.signOut();
     setUser(null);
+    navigate("/");
   };
-
-  useEffect(() => {
-    if (user === null) {
-      navigate("/login", { replace: true });
-    }
-  }, [user, navigate]);
 
   return (
     <>
       {!user ? (
         <header>
-          <div className="top-header">lawebdepatricia@gmail.com</div>
+          <div className="top-header">
+            <div className="top-header__animation">
+              <span className="top-header__text">
+                lawebdepatricia@gmail.com
+              </span>
+              <span className="top-header__text">
+                Lun-Vie: 9:00 - 17:00 | Sab: 9:00 - 14:00
+              </span>
+            </div>
+          </div>
           <div>
             {isMobile ? (
               <div className="header-mobile">
@@ -129,7 +134,16 @@ const Header = (): React.ReactElement => {
         </header>
       ) : (
         <header>
-          <div className="top-header">lawebdepatricia@gmail.com</div>
+          <div className="top-header">
+            <div className="top-header__animation">
+              <span className="top-header__text">
+                lawebdepatricia@gmail.com
+              </span>
+              <span className="top-header__text">
+                Lun-Vie: 9:00 - 17:00 | Sab: 9:00 - 14:00
+              </span>
+            </div>
+          </div>
           <div>
             {isMobile ? (
               <div className="header-mobile">
@@ -148,7 +162,7 @@ const Header = (): React.ReactElement => {
                   </NavLink>
                   <button className="login-position-web" onClick={userLogOut}>
                     <img
-                      src={"logout"}
+                      src={logout}
                       alt="logout-icon"
                       width={48}
                       height={48}
@@ -171,12 +185,7 @@ const Header = (): React.ReactElement => {
                   />
                 </NavLink>
                 <button className="login-position-web" onClick={userLogOut}>
-                  <img
-                    src={"logout"}
-                    alt="logout-icon"
-                    width={48}
-                    height={48}
-                  />
+                  <img src={logout} alt="logout-icon" width={48} height={48} />
                 </button>
               </div>
             )}

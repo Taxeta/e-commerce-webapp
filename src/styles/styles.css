@@ -8,7 +8,7 @@
   --primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color: var(--black);
-  background-color: var(--secondary-color);
+  background-color: var(--white);
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -1,8 +1,28 @@
 .top-header {
   display: flex;
-  background-color: var(--secondary-color);
+  flex-direction: row;
+  background-color: var(--primary-color);
   font-size: 12px;
-  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+}
+.top-header__animation {
+  display: inline-block;
+  white-space: nowrap;
+  animation: top-text 10s linear infinite;
+}
+.top-header__text {
+  display: inline-block;
+  padding-right: 100%;
+}
+
+@keyframes top-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .header-mobile {
