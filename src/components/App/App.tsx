@@ -7,6 +7,7 @@ import LoginUserPage from "../../pages/Login/LoginUserPage/LoginUserPage";
 import SignUpPage from "../../pages/Login/RegisterPage/RegisterPage";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ServicesPage from "../../pages/ServicesPage/ServicesPage";
 
 function App() {
   return (
@@ -46,6 +47,14 @@ function App() {
                   <ProfilePage />
                 </Suspense>
               </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path={"/servicios"}
+            element={
+              <Suspense>
+                <ServicesPage />
+              </Suspense>
             }
           ></Route>
         </Routes>
