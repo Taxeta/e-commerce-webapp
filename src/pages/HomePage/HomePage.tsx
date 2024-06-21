@@ -8,9 +8,13 @@ const HomePage = (): React.ReactElement => {
 
   return (
     <section className="homepage-styles">
-      <h1 className="introduction-title">Esto va a ser el inicio de la App</h1>
+      <h1 className="introduction-title">
+        Aquí podría ir un slider to wapo de fondo con un texto de inicio
+        presentación.
+      </h1>
       <h2 className="introduction-subtitle">
-        renderizaremos una página inicial de muestra
+        Aquí se podrían crear secciones dentro de la página en plan presentación
+        superchuli.
       </h2>
     </section>
   );
